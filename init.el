@@ -166,3 +166,11 @@
    '((recents . "file-text")
      (projects . "book")))
   (dashboard-setup-startup-hook))
+
+;; Neotree
+(use-package neotree
+  :custom
+  (neo-theme 'icons)
+  :bind
+  ("<f8>" . neotree-toggle))
+
