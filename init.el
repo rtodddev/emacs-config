@@ -72,18 +72,29 @@
       '(("personal" . ?p)
         ("emacs" . ?e)))
 
-;; Selectrum
-(use-package selectrum
+;; Company
+(use-package company
   :config
-  (selectrum-mode 1))
+  (global-company-mode))
 
-;; Prescient
-(use-package prescient
+;; Vertico
+(use-package vertico
   :config
-  (prescient-persist-mode))
+  (vertico-mode))
 
-;; Selectrum Prescient
-(use-package selectrum-prescient
-  :after (selectrum prescient)
+;; Orderless
+(use-package orderless
+  :custom
+  (completion-styles '(basic substring partial-completion flex))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles partial-completion)))))
+
+;; Savehist -- Vertico saves recently visited files
+(use-package savehist
   :config
-  (selectrum-prescient-mode +1))
+  (savehist-mode))
+
+;; Marginalia
+(use-package marginalia
+  :config
+  (marginalia-mode))
