@@ -81,6 +81,15 @@
       '(("personal" . ?p)
         ("emacs" . ?e)))
 
+;; Agenda
+(setq org-agenda-prefix-format
+      '((todo . " ")
+        (tags . " ")
+        (agenda . " ")))
+
+;; Hide tags
+(setq org-agenda-hide-tags-regexp "")
+
 ;; Company
 (use-package company
   :config
@@ -132,3 +141,28 @@
   :config
   (smartparens-mode)
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil))
+
+;; Projectile
+(use-package projectile
+  :bind
+  ("C-c p" . projectile-command-map)
+  :config
+  (projectile-mode 1))
+
+;; Dashboard
+(use-package dashboard
+  :custom
+  (dashboard-items
+   '((recents  . 7)
+     (projects . 7)
+     (agenda . 5)))
+  (dashboard-set-heading-icons t)
+  (dashboard-set-init-info nil)
+  (dashboard-set-footer nil)
+  (dashboard-agenda-prefix-format " ")
+  (dashboard-filter-agenda-entry 'dashboard-no-filter-agenda)
+  :config
+  (dashboard-modify-heading-icons
+   '((recents . "file-text")
+     (projects . "book")))
+  (dashboard-setup-startup-hook))
