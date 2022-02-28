@@ -32,3 +32,8 @@
 (use-package doom-themes
   :config
   (load-theme 'doom-palenight t))
+
+;; Doom Modeline
+(use-package doom-modeline
+  :config
+  (doom-modeline-mode))
