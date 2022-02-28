@@ -37,3 +37,37 @@
 (use-package doom-modeline
   :config
   (doom-modeline-mode))
+
+;; Org
+(setq org-directory "~/org")
+(setq org-default-notes-file (concat org-directory "/inbox.org"))
+(setq org-agenda-files '("~/org/inbox.org"))
+
+;; Keybindings
+(global-set-key (kbd "C-c c") #'org-capture)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c l") #'org-link)
+(global-set-key (kbd "<f4>") #'org-capture)
+(global-set-key (kbd "<f5>") #'org-agenda)
+
+;; Capture
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/inbox.org" "Tasks")
+         "* TODO %?\n")
+        ("n" "Note" entry (file+headline "~/org/inbox.org" "Notes")
+         "* NOTE  %?\n")))
+
+;; Todo keywords
+(setq org-todo-keywords
+      '((sequence "TODO" "|" "DONE" "CANCELED")))
+
+;; Todos
+(setq org-todo-keyword-faces
+      '(("TODO" . (:foreground "red" :weight bold))
+        ("DONE" . (:foreground "green" :weight bold))
+        ("CANCELED" . (:foreground "grey" :weight bold))))
+
+;; Tags
+(setq org-tag-alist
+      '(("personal" . ?p)
+        ("emacs" . ?e)))
