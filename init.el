@@ -25,6 +25,8 @@
 
 ;; Don't use tabs
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq-default indent-line-function 'insert-tab)
 
 ;; Show parentheses
 (show-paren-mode 1)
@@ -120,3 +122,13 @@
   ("C-." . embark-act)
   ("C-;" . embark-dwim)
   ("C-h B" . embark-bindings))
+
+;; Embark Consult
+(use-package embark-consult
+  :after (embark consult))
+
+;; Smartparens
+(use-package smartparens
+  :config
+  (smartparens-mode)
+  (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil))
