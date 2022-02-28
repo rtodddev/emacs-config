@@ -23,3 +23,12 @@
 ;; Configure straight to use use-package by default
 (use-package straight
    :custom (straight-use-package-by-default t))
+
+;; Disable unnecessary UI
+(push '(menu-bar-lines . 0) default-frame-alist)
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
+
+;; Remove startup noise
+(setq inhibit-startup-screen t)
+(setq initial-scratch-message "")
