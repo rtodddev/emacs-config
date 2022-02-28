@@ -71,3 +71,19 @@
 (setq org-tag-alist
       '(("personal" . ?p)
         ("emacs" . ?e)))
+
+;; Selectrum
+(use-package selectrum
+  :config
+  (selectrum-mode 1))
+
+;; Prescient
+(use-package prescient
+  :config
+  (prescient-persist-mode))
+
+;; Selectrum Prescient
+(use-package selectrum-prescient
+  :after (selectrum prescient)
+  :config
+  (selectrum-prescient-mode +1))
