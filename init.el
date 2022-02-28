@@ -27,3 +27,8 @@
 
 ;; Don't ask for yes or no ask for y or n instead
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; Doom-themes
+(use-package doom-themes
+  :config
+  (load-theme 'doom-palenight t))
