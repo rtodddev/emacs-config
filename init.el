@@ -1,5 +1,9 @@
 ;;; init.el --- Init file -*- lexical-binding: t -*-
 
+;; User info
+(setq user-full-name "Ryan Todd")
+(setq user-mail-address "r.todd.dev@gmail.com")
+
 ;; Don't create backup files
 (setq make-backup-files nil)
 
@@ -27,6 +31,9 @@
 
 ;; Don't ask for yes or no ask for y or n instead
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; Ask to confirm when killing emacs
+(setq confirm-kill-emacs 'y-or-n-p)
 
 ;; Doom-themes
 (use-package doom-themes
@@ -98,3 +105,18 @@
 (use-package marginalia
   :config
   (marginalia-mode))
+
+;; Consult
+(use-package consult
+  :bind
+  ("<f1>" . consult-apropos)           ;; Replacement for apropos
+  ("M-s l" . consult-line)             ;; Search for matching line
+  ("M-g g" . consult-goto-line)        ;; Go to line number
+  ("M-g o" . consult-outline))         ;; Go to heading Org-Mode
+
+;; Embark
+(use-package embark
+  :bind
+  ("C-." . embark-act)
+  ("C-;" . embark-dwim)
+  ("C-h B" . embark-bindings))
