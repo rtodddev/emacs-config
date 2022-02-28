@@ -5,3 +5,25 @@
 
 ;; Don't create lockfiles
 (setq-default create-lockfiles nil)
+
+;; Set mac modifier keys
+(setq mac-command-modifier 'super)
+(setq mac-option-modifier 'meta)
+
+;; Delete selection on keypress
+(delete-selection-mode 1)
+
+;; Files should end in a newline
+(setq require-final-newline t)
+
+;; Turn off cursor alarm
+(setq ring-bell-function 'ignore)
+
+;; Don't use tabs
+(setq-default indent-tabs-mode nil)
+
+;; Show parentheses
+(show-paren-mode 1)
+
+;; Don't ask for yes or no ask for y or n instead
+(fset 'yes-or-no-p 'y-or-n-p)
